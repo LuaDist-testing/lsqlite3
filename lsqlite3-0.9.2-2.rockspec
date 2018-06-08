@@ -1,16 +1,16 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "lsqlite3"
-version = "0.9.1-2"
+version = "0.9.2-2"
 -- LuaDist source
 source = {
-  tag = "0.9.1-2",
+  tag = "0.9.2-2",
   url = "git://github.com/LuaDist-testing/lsqlite3.git"
 }
 -- Original source
 -- source = {
---     url = "http://lua.sqlite.org/index.cgi/zip/lsqlite3_fsl09t.zip?uuid=fsl_9t",
---     file = "lsqlite3_fsl09t.zip"
+--     url = "http://lua.sqlite.org/index.cgi/zip/lsqlite3_fsl09v.zip?uuid=fsl_9v",
+--     file = "lsqlite3_fsl09v.zip"
 -- }
 description = {
     summary = "A binding for Lua to the SQLite3 database library",
@@ -25,7 +25,7 @@ description = {
     homepage = "http://lua.sqlite.org/"
 }
 dependencies = {
-    "lua >= 5.1, < 5.3"
+    "lua >= 5.1, < 5.4"
 }
 external_dependencies = {
     SQLITE = {
