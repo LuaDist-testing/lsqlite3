@@ -1,9 +1,17 @@
+-- This file was automatically generated for the LuaDist project.
+
 package = "lsqlite3"
 version = "0.9.4-2"
+-- LuaDist source
 source = {
-    url = "http://lua.sqlite.org/index.cgi/zip/lsqlite3_fsl09x.zip?uuid=fsl_9x",
-    file = "lsqlite3_fsl09x.zip"
+  tag = "0.9.4-2",
+  url = "git://github.com/LuaDist-testing/lsqlite3.git"
 }
+-- Original source
+-- source = {
+--     url = "http://lua.sqlite.org/index.cgi/zip/lsqlite3_fsl09x.zip?uuid=fsl_9x",
+--     file = "lsqlite3_fsl09x.zip"
+-- }
 description = {
     summary = "A binding for Lua to the SQLite3 database library",
     detailed = [[
