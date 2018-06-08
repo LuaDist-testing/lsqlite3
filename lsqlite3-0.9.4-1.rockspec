@@ -1,10 +1,10 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "lsqlite3"
-version = "0.9.4-0"
+version = "0.9.4-1"
 -- LuaDist source
 source = {
-  tag = "0.9.4-0",
+  tag = "0.9.4-1",
   url = "git://github.com/LuaDist-testing/lsqlite3.git"
 }
 -- Original source
@@ -44,6 +44,7 @@ build = {
         },
         lsqlite3complete = {
             sources = { "lsqlite3.c", "sqlite3.c" },
+            libraries = { "pthread", "m", "dl" },
             defines = {'LSQLITE_VERSION="0.9.4"', 'luaopen_lsqlite3=luaopen_lsqlite3complete'}
         }
     },
