@@ -15,6 +15,7 @@
 	<ul>
 
 		<li><a href="#sqlite3_complete">sqlite3.complete</a></li>
+        <li><a href="#sqlite3_lversion">sqlite3.lversion</a></li>
 		<li><a href="#sqlite3_open">sqlite3.open</a></li>
 		<li><a href="#sqlite3_open_memory">sqlite3.open_memory</a></li>
 		<li><a href="#sqlite3_temp_directory">sqlite3.temp_directory</a></li>
@@ -39,6 +40,7 @@
 		<li><a href="#db_interrupt">db:interrupt</a></li>
 		<li><a href="#db_isopen">db:isopen</a></li>
 		<li><a href="#db_last_insert_rowid">db:last_insert_rowid</a></li>
+		<li><a href="#db_load_extension">db:load_extension</a></li>
 		<li><a href="#db_nrows">db:nrows</a></li>
 		<li><a href="#db_prepare">db:prepare</a></li>
 		<li><a href="#db_progress_handler">db:progress_handler</a></li>
@@ -73,12 +75,12 @@
 		<li><a href="#stmt_get_value">stmt:get_value</a></li>
 		<li><a href="#stmt_get_values">stmt:get_values</a></li>
 		<li><a href="#stmt_isopen">stmt:isopen</a></li>
+        <li><a href="#stmt_last_insert_rowid">stmt:last_insert_rowid</a></li>
 		<li><a href="#stmt_nrows">stmt:nrows</a></li>
 		<li><a href="#stmt_reset">stmt:reset</a></li>
 		<li><a href="#stmt_rows">stmt:rows</a></li>
 		<li><a href="#stmt_step">stmt:step</a></li>
         <li><a href="#stmt_urows">stmt:urows</a></li>
-        <li><a href="#stmt_last_insert_rowid">stmt:last_insert_rowid</a></li>
 	</ul>
 
 	<li><a href="#methods_for_callback_contexts">Methods for callback contexts</a></li>
@@ -213,7 +215,13 @@ the function simply returns the current temporary directory.</p>
 <h2><a name="sqlite3_version">sqlite3.version</a></h2>
 <pre>
         sqlite3.version()</pre>
-<p>Returns a string with SQLite version information, in the form 'x.y[.z]'.</p>
+<p>Returns a string with SQLite version information, in the form 'x.y[.z[.p]]'.</p>
+<p>
+</p>
+<h2><a name="sqlite3_lversion">sqlite3.lversion</a></h2>
+<pre>
+        sqlite3.lversion()</pre>
+<p>Returns a string with lsqlite3 library version information, in the form 'x.y[.z]'.</p>
 <p>
 </p>
 <hr />
@@ -373,6 +381,22 @@ number of parameters as given in nargs. Here is an example:</p>
         for col1,col2,col3,sum in db:urows('SELECT *,sum_cols(col1,col2,col3) FROM test') do
           util.printf('%2i+%2i+%2i=%2i\n',col1,col2,col3,sum)
         end</pre>
+<p>
+</p>
+<h2><a name="db_load_extension">db:load_extension</a></h2>
+<pre>
+        db:load_extension([name,[entrypoint]])</pre>
+
+<p>When a <code>name</code> is provided, loads an SQLite extension library from the 
+named file into this database connection. The optional <code>entrypoint</code> is the 
+library initialization function name; if not supplied, SQLite tries various default 
+entrypoint names. Returns <code>true</code> when successful, or <code>false</code> and 
+an error string otherwise.
+</p>
+<p>When called with no arguments, disables the load_extension() SQL function, which is 
+enabled as a side effect of calling <code>db:load_extension</code> with a 
+<code>name</code>.
+</p>
 <p>
 </p>
 <h2><a name="db_errcode">db:errcode</a></h2>
@@ -977,7 +1001,7 @@ documentation</strong> <a href="http://www.sqlite.org/">http://www.sqlite.org/</
 </p>
 <hr />
 <h1><a name="version">VERSION</a></h1>
-<p>This is <code>lsqlite3</code> version <code>fsl_9u</code>, also known as &quot;devel-0.9.2-1&quot;.</p>
+<p>This is <code>lsqlite3</code> version &quot;0.9.3&quot;, also tagged as <code>fsl_9w</code>.</p>
 <p>
 </p>
 <hr />
